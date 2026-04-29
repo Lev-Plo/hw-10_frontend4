@@ -3,39 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Homework</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
-<!-- Завдання 1 -->
-<section>
-    <h2>Завдання 1</h2>
-    <button onclick="startTimer()">Запустити</button>
+    <section>
+    <!-- Завдання 1 -->
+    <button id="btn1">Запустити</button>
 </section>
 
-<!-- Завдання 2 -->
 <section>
-    <h2>Завдання 2</h2>
-    <button onclick="startAnimation()">Старт анімації</button>
+    <!-- Завдання 2 -->
+    <button id="btn2">Анімація</button>
     <div id="box"></div>
 </section>
 
-<!-- Завдання 3 -->
 <section>
-    <h2>Завдання 3</h2>
+    <!-- Завдання 3 -->
     <button id="target">Клікни мене!</button>
     <p>Очки: <span id="score">0</span></p>
-    <p>Час: <span id="time">10</span> сек</p>
-    <button onclick="startGame()">Почати гру</button>
+    <p>Час: <span id="time">10</span></p>
+    <button id="startGame">Почати гру</button>
 </section>
 
-<!-- Завдання 4 -->
 <section>
-    <h2>Завдання 4</h2>
-    <input type="number" id="secondsInput" placeholder="Введіть секунди">
-    <button onclick="startTimeout()">Старт</button>
+    <!-- Завдання 4 -->
+    <input type="number" id="secondsInput">
+    <button id="btn4">Старт</button>
 </section>
 
-<script type="module" src="./work.js"></script>
+    <script src="work.js" defer></script>
+
 </body>
 </html>

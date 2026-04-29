@@ -1,85 +1,83 @@
-// Завдання 1
-function startTimer() {
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Завдання 1
+  document.getElementById("btn1").addEventListener("click", () => {
     let count = 0;
 
-    const intervalId = setInterval(() => {
-        count++;
-        console.log(`Повідомлення №${count}`);
+    const interval = setInterval(() => {
+      count++;
+      console.log(count);
 
-        if (count === 5) {
-            clearInterval(intervalId);
-            console.log("Інтервал зупинено");
-        }
+      if (count === 5) {
+        clearInterval(interval);
+        console.log("Стоп");
+      }
     }, 1000);
-}
+  });
 
-// Завдання 2
-function startAnimation() {
-    let position = 0;
+  // Завдання 2
+  document.getElementById("btn2").addEventListener("click", () => {
+    let pos = 0;
     let size = 50;
-
     const box = document.getElementById("box");
 
-    const animation = setInterval(() => {
-        position += 5;
-        size += 1;
+    const anim = setInterval(() => {
+      pos += 5;
+      size += 1;
 
-        box.style.left = position + "px";
-        box.style.width = size + "px";
-        box.style.height = size + "px";
+      box.style.left = pos + "px";
+      box.style.width = size + "px";
+      box.style.height = size + "px";
 
-        if (position > 300) {
-            clearInterval(animation);
-        }
+      if (pos > 300) clearInterval(anim);
     }, 50);
-}
+  });
+  // Завдання 3
+  let score = 0;
+  let time = 10;
+  let gameInterval;
 
-// Завдання 3
-let score = 0;
-let timeLeft = 10;
-let gameInterval;
+  const target = document.getElementById("target");
+  const scoreEl = document.getElementById("score");
+  const timeEl = document.getElementById("time");
 
-const button = document.getElementById("target");
-const scoreDisplay = document.getElementById("score");
-const timeDisplay = document.getElementById("time");
-
-button.addEventListener("click", () => {
+  target.addEventListener("click", () => {
     score++;
-    scoreDisplay.textContent = score;
-});
+    scoreEl.textContent = score;
+  });
 
-function startGame() {
+  document.getElementById("startGame").addEventListener("click", () => {
     score = 0;
-    timeLeft = 10;
-    button.disabled = false;
+    time = 10;
+    target.disabled = false;
 
-    scoreDisplay.textContent = score;
-    timeDisplay.textContent = timeLeft;
+    scoreEl.textContent = score;
+    timeEl.textContent = time;
 
     clearInterval(gameInterval);
 
     gameInterval = setInterval(() => {
-        timeLeft--;
-        timeDisplay.textContent = timeLeft;
+      time--;
+      timeEl.textContent = time;
 
-        if (timeLeft === 0) {
-            clearInterval(gameInterval);
-            button.disabled = true;
-            alert(`Гру завершено! Ваш результат: ${score}`);
-        }
+      if (time === 0) {
+        clearInterval(gameInterval);
+        target.disabled = true;
+        alert("Результат: " + score);
+      }
     }, 1000);
-}
-
-// Завдання 4
-function startTimeout() {
+  });
+  // Завдання 4
+  document.getElementById("btn4").addEventListener("click", () => {
     const seconds = document.getElementById("secondsInput").value;
 
-    if (seconds <= 0) {
-        alert("Введіть коректне число");
-        return;
+    if (!seconds || seconds <= 0) {
+      alert("Введи число");
+      return;
     }
 
     setTimeout(() => {
-        alert(`Пройшло ${seconds} секунд!`);
+      alert("Пройшло " + seconds + " секунд");
     }, seconds * 1000);
-}
+  });
+});
